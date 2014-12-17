@@ -72,9 +72,12 @@ feature 'restaurants' do
   end
 
   context 'editing restaurants' do
-    before {Restaurant.create(name:'KFC')}
+    before do sign_in_example_user 
+           Restaurant.create(name:'KFC')
+         end
 
     it 'lets a user edit a restaurant' do
+
       visit '/restaurants'
       click_link 'Edit KFC'
       fill_in 'Name', with: 'Kentucky Fried Chicken'
@@ -86,7 +89,9 @@ feature 'restaurants' do
 
 
   describe 'deleting restaurants' do
-    before {Restaurant.create(:name => "KFC")}
+    before do sign_in_example_user 
+           Restaurant.create(name:'KFC')
+         end
 
     it 'removes a restaurant when a user clicks a delete link' do
       visit '/restaurants'
