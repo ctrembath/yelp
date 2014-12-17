@@ -38,6 +38,7 @@ class RestaurantsController < ApplicationController
   end
 
   def destroy
+    current_user
     @restaurant = Restaurant.find(params[:id])
     @restaurant.destroy
     flash[:notice] = 'Restaurant deleted successfully'
