@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   
 
 
-  # resources :users do
-  #   resources :restaurants
-  # end
+  resources :restaurants do
+    resources :reviews
+  end
 
   root to: "restaurants#index"
 
